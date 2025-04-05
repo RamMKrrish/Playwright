@@ -1,4 +1,4 @@
-// launch chromium in headless mode
+// launch chromium in non headless mode
 
 import { chromium, firefox, webkit } from '@playwright/test';
 import test from '@playwright/test';
@@ -12,7 +12,8 @@ const browser = await chromium.launch({headless: false});
 await page.goto("https://login.salesforce.com/");
 
 //Maximize the browser window
-await page.setViewportSize({ width: 1920, height: 1080 });
+await page.bringToFront();
+//await page.setViewportSize({ width: 1920, height: 1080 });
 
 
 // Enter the username and password
